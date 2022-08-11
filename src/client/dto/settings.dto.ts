@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class SettingsDto {
   @IsInt()
-  @ApiProperty({example: 8000})
+  @ApiProperty({example: 3000})
   readonly port: number;
 
   @IsString()
@@ -11,7 +11,7 @@ export class SettingsDto {
   readonly key: string;
 
   @IsString()
-  @ApiProperty({example: "10.0.1.2"})
+  @ApiProperty({example: "http://192.168.2.226"})
   readonly endpoint: string;
 
 }
