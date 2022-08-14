@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ServerService {
 
-    testCall(testCallDto: TestCallDto): String {
+    testCall(testCallDto: TestCallDto): any {
 
-        return testCallDto.testValue
+        return {data: testCallDto.testValue}
     }
 
 

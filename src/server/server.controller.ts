@@ -12,7 +12,7 @@ export class ServerController {
     @Post('test-call')
     @ApiOperation({ summary: 'Client test call from client' })
     @ApiResponse({status: 200, description: 'Test status', type: String })
-    testCall(@Body() testCallDto: TestCallDto): String {
+    testCall(@Body() testCallDto: TestCallDto): any {
         return this.serverService.testCall(testCallDto)
     }
 

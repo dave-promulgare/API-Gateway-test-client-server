@@ -16,12 +16,9 @@ export class ClientController {
     @Post('test-call')
     @ApiOperation({ summary: 'Client test call to server' })
     @ApiResponse({status: 200, description: 'Test status', type: String })
-    testCall(@Body() testCallDto: TestCallDto): Observable<any> {
+    async testCall(@Body() testCallDto: TestCallDto): Promise<any> {
         console.log("test-call from controller")
-        this.clientService.testCall(testCallDto, this.clientPort, this.clientKey, this.clientEndpoint).subscribe((res) => {
-            console.log(res.data)
-        })
-        return 
+        return this.clientService.testCall(testCallDto, this.clientPort, this.clientKey, this.clientEndpoint)
     }
 
 
@@ -29,6 +26,7 @@ export class ClientController {
     @ApiOperation({ summary: 'Client settings to communicate to server' })
     @ApiResponse({status: 200, description: 'Settings status', type: String })
     async settings(@Body() settingsDto: SettingsDto): Promise<String> {
+        console.log("settings from controller")
         this.clientPort = settingsDto.port
         this.clientKey = settingsDto.key
         this.clientEndpoint = settingsDto.endpoint
